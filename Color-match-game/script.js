@@ -1,3 +1,5 @@
+window.addEventListener('resize', adjustGridColumns);
+
 // Game state variables
 let cards = [];
 let flippedCards = [];
@@ -62,6 +64,9 @@ function initGame() {
         totalPairs = 12;
     }
     
+    // Adjust grid columns based on screen width
+    adjustGridColumns();
+    
     // Create cards
     const colors = colorPalettes[difficulty].slice(0, totalPairs);
     const cardColors = [...colors, ...colors];
@@ -77,6 +82,20 @@ function initGame() {
         gameBoard.appendChild(card);
         cards.push(card);
     });
+}
+
+// Adjust grid columns based on screen width
+function adjustGridColumns() {
+    const screenWidth = window.innerWidth;
+    if (screenWidth < 320) {
+        gameBoard.style.gridTemplateColumns = 'repeat(1, 1fr)';
+    } else if (screenWidth < 480) {
+        gameBoard.style.gridTemplateColumns = 'repeat(2, 1fr)';
+    } else if (screenWidth < 768) {
+        gameBoard.style.gridTemplateColumns = 'repeat(3, 1fr)';
+    } else {
+        gameBoard.style.gridTemplateColumns = 'repeat(4, 1fr)';
+    }
 }
 
 // Flip a card
@@ -181,7 +200,7 @@ function createConfetti() {
 
 // Utility function to shuffle an array
 function shuffleArray(array) {
-    for (let i = array.length - 1; i > 0; i--) {
+    for (let i = array.length - 1; i > 0; i++) {
         const j = Math.floor(Math.random() * (i + 1));
         [array[i], array[j]] = [array[j], array[i]];
     }

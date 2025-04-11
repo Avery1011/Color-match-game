@@ -137,6 +137,12 @@ button:hover {
     }
 }
 
+@media (max-width: 320px) {
+    .game-board {
+        grid-template-columns: repeat(1, 1fr);
+    }
+}
+
 .modal {
     position: fixed;
     top: 0;
