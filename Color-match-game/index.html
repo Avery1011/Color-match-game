@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Color Match - GitHub Game</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="game-container">
+        <h1>🎨 Color Match</h1>
+        
+        <div class="difficulty-select">
+            <button id="easy-btn" class="difficulty-btn active">Easy</button>
+            <button id="medium-btn" class="difficulty-btn">Medium</button>
+            <button id="hard-btn" class="difficulty-btn">Hard</button>
+        </div>
+        
+        <div class="stats">
+            <div class="stat">
+                <div>Moves</div>
+                <div id="moves" class="stat-value">0</div>
+            </div>
+            <div class="stat">
+                <div>Matches</div>
+                <div id="matches" class="stat-value">0</div>
+            </div>
+            <div class="stat">
+                <div>Time</div>
+                <div id="time" class="stat-value">0:00</div>
+            </div>
+        </div>
+        
+        <div id="game-board" class="game-board"></div>
+        
+        <button id="restart-btn">Restart Game</button>
+    </div>
+    
+    <div id="win-modal" class="modal">
+        <div class="modal-content">
+            <h2>Congratulations! 🎉</h2>
+            <p>You've matched all the colors!</p>
+            <div id="final-stats">
+                <p>Moves: <span id="final-moves">0</span></p>
+                <p>Time: <span id="final-time">0:00</span></p>
+            </div>
+            <button id="play-again-btn">Play Again</button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
